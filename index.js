@@ -15,6 +15,7 @@ const passportLocal = require('./config/passport-local-strategy');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const MongoStore = require('connect-mongo');
 const flashMiddleware = require('./config/flashMiddleware');
+const production = require('./config/environment');
 
 app.use(sassMiddleware({
     src: path.join(__dirname, env.asset_path, 'scss'),
@@ -47,7 +48,8 @@ app.use(session({
     },
     store: MongoStore.create(
         {
-            mongoUrl: "mongodb://localhost:27017/" + env.db,
+            // mongoUrl: "mongodb://localhost:27017/" + env.db,
+            mongoUrl : process.env.AUTHENTICATION_DB,
             autoRemove: 'disabled'
         },
         function (err) {

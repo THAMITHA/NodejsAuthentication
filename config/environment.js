@@ -28,7 +28,7 @@ const development = {
 
 const production = {
     name: 'production',
-    db: process.env.AUTHENTICATION_DB,
+    // db: process.env.AUTHENTICATION_DB,
     port: process.env.AUTHENTICATION_PORT,
     asset_path: "/assets",
     session_cookie_key: process.env.AUTHENTICATION_SESSION_COOKIE_KEY,
