@@ -1,7 +1,8 @@
 const env = require('./environment');
 const mongoose = require('mongoose');
 
-mongoose.connect(`mongodb://127.0.0.1/${env.db}`);
+// mongoose.connect(`mongodb://127.0.0.1/${env.db}`);
+mongoose.connect(process.env.AUTHENTICATION_DB);
 
 const db = mongoose.connection;
 
